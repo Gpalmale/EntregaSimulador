@@ -61,3 +61,48 @@ obtenerMonedas().forEach(moneda => {
 
 //  click del botón
 btnConvertir.addEventListener('click', convertirMoneda);
+
+/*const monedasDisponibles = ['USD', 'EUR', 'JPY', 'GBP', 'AUD', 'CLP'];
+
+function obtenerApiUrl(monedaOrigen, monedaDestino) {
+  return `https://api.exchangerate-api.com/v4/latest/${monedaOrigen}/${monedaDestino}`;
+}
+
+function convertirMoneda() {
+  const monto = parseFloat(document.getElementById('monto').value);
+  const monedaOrigen = document.getElementById('monedaOrigen').value;
+  const monedaDestino = document.getElementById('monedaDestino').value;
+  const outputResultado = document.getElementById('resultado');
+
+  if (isNaN(monto) || !monedaOrigen || !monedaDestino) {
+    outputResultado.innerText = 'Ingrese todos los valores';
+    return;
+  }
+
+  fetch(obtenerApiUrl(monedaOrigen, monedaDestino))
+    .then(response => response.json())
+    .then(data => {
+      const tasaDeCambio = data.conversion_rate;
+      const resultado = monto * tasaDeCambio;
+      outputResultado.innerText = `${monto} ${monedaOrigen} = ${resultado.toFixed(2)} ${monedaDestino}`;
+    })
+    .catch(error => {
+      console.error('Error al obtener los tipos de cambio:', error);
+      outputResultado.innerText = 'Error al obtener los tipos de cambio';
+    });
+}
+
+monedasDisponibles.forEach(moneda => {
+  const opcionOrigen = document.createElement('option');
+  opcionOrigen.value = moneda;
+  opcionOrigen.innerText = moneda;
+  document.getElementById('monedaOrigen').appendChild(opcionOrigen);
+
+  const opcionDestino = document.createElement('option');
+  opcionDestino.value = moneda;
+  opcionDestino.innerText = moneda;
+  document.getElementById('monedaDestino').appendChild(opcionDestino);
+});
+
+document.getElementById('convertir').addEventListener('click', convertirMoneda);
+*/
